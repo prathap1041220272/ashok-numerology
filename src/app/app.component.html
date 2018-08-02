@@ -1,0 +1,19 @@
+<div>
+  <form name="myForm" [formGroup]="myForm">
+    <input type="email" formControlName="email" email>
+    <input type="password" formControlName="password" >
+    <div formArrayName="books">
+      <section [formGroupName]="i" *ngFor="let x of books.controls; let i = index;">
+      <input type="text" formControlName="name">
+        
+      </section>
+    </div>
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>
+
+<button (click)="addBook()">Add</button>
+
+<div>
+ Result  {{myForm.value | json}}
+</div>
